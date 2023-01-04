@@ -33,7 +33,7 @@ repositories {
 }
 
 dependencies {
-  implementation(platform("org.openrewrite.recipe:rewrite-recipe-bom:1.12.3"))
+  implementation(platform("org.openrewrite.recipe:rewrite-recipe-bom:1.13.1"))
   implementation("org.openrewrite.recipe:rewrite-logging-frameworks")
   implementation("org.openrewrite.recipe:rewrite-migrate-java")
   implementation("org.openrewrite.recipe:rewrite-testing-frameworks")
