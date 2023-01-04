@@ -45,7 +45,7 @@ jobs:
           distribution: zulu
 
       - name: Build
-        run: ./gradlew build
+        run: ./gradlew build --scan
 
       - name: Build Snapshot
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
@@ -54,13 +54,13 @@ jobs:
           ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.ORG_GRADLE_PROJECT_sonatypePassword }}
           ORG_GRADLE_PROJECT_signingKey: ${{ secrets.ORG_GRADLE_PROJECT_signingKey }}
           ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.ORG_GRADLE_PROJECT_signingPassword }}
-        run: ./gradlew build snapshot
+        run: ./gradlew build snapshot --scan
 
       - name: Log in to Docker Hub
         if: startsWith(github.ref, 'refs/tags/v') && !contains(github.ref, '-rc')
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          username: rahulsom
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Final
@@ -70,7 +70,7 @@ jobs:
           ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.ORG_GRADLE_PROJECT_sonatypePassword }}
           ORG_GRADLE_PROJECT_signingKey: ${{ secrets.ORG_GRADLE_PROJECT_signingKey }}
           ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.ORG_GRADLE_PROJECT_signingPassword }}
-        run: ./gradlew -Prelease.useLastTag=true build final
+        run: ./gradlew -Prelease.useLastTag=true build final --scan
 
       - name: Extract metadata (tags, labels) for Docker
         if: startsWith(github.ref, 'refs/tags/v') && !contains(github.ref, '-rc')
