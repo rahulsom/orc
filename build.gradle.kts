@@ -64,6 +64,10 @@ jib {
   to {
     image = "rahulsom/orc"
     tags = setOf("latest", project.version.toString())
+    auth {
+      username = System.getenv("DOCKER_USERNAME")
+      password = System.getenv("DOCKER_PASSWORD")
+    }
   }
 }
 
@@ -71,5 +75,5 @@ tasks.withType<Test>() {
   useJUnitPlatform()
 }
 
-tasks.getByName("final").dependsOn("jibDockerBuild")
-tasks.getByName("snapshot").dependsOn("jibDockerBuild")
+tasks.getByName("final").dependsOn("jib")
+tasks.getByName("snapshot").dependsOn("jib")
