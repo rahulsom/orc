@@ -63,9 +63,12 @@ jib {
   }
   to {
     image = "rahulsom/orc"
+    tags = setOf("latest", project.version.toString())
   }
 }
 
 tasks.withType<Test>() {
   useJUnitPlatform()
 }
+
+tasks.getByName("final").dependsOn("jibDockerHub")
