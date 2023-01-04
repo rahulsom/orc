@@ -71,4 +71,5 @@ tasks.withType<Test>() {
   useJUnitPlatform()
 }
 
-tasks.getByName("final").dependsOn("jibDockerHub")
+tasks.getByName("final").dependsOn("jibDockerBuild")
+tasks.getByName("snapshot").dependsOn("jibDockerBuild")
