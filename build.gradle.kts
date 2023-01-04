@@ -9,6 +9,10 @@ plugins {
   id("com.google.cloud.tools.jib").version("3.3.1")
 }
 
+allprojects {
+  group = "com.github.rahulsom"
+}
+
 description = "Open Rewrite CLI"
 
 contacts {
