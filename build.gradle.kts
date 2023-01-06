@@ -80,6 +80,7 @@ jib {
     tags =
       when {
         project.version.toString().contains("-dev") -> setOf("unstable")
+        project.version.toString().contains("-SNAPSHOT") -> setOf("unstable")
         else -> setOf("stable", "latest", project.version.toString())
       }
     auth {
