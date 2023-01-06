@@ -60,10 +60,27 @@ application {
 jib {
   from {
     image = "eclipse-temurin:17-jdk"
+    platforms {
+      platform {
+        architecture = "amd64"
+        os = "linux"
+      }
+      platform {
+        architecture = "arm"
+        os = "linux"
+      }
+      platform {
+        architecture = "arm64"
+        os = "linux"
+      }
+    }
   }
   to {
     image = "rahulsom/orc"
-    tags = setOf("latest", project.version.toString())
+    tags = setOf(
+      "latest",
+      if (project.version.toString().contains("-dev")) null else project.version.toString()
+    ).filterNotNull().toSet()
     auth {
       username = System.getenv("DOCKER_USERNAME")
       password = System.getenv("DOCKER_PASSWORD")
