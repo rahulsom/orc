@@ -77,10 +77,11 @@ jib {
   }
   to {
     image = "rahulsom/orc"
-    tags = setOf(
-      "latest",
-      if (project.version.toString().contains("-dev")) null else project.version.toString()
-    ).filterNotNull().toSet()
+    tags =
+      when {
+        project.version.toString().contains("-dev") -> setOf("unstable")
+        else -> setOf("stable", "latest", project.version.toString())
+      }
     auth {
       username = System.getenv("DOCKER_USERNAME")
       password = System.getenv("DOCKER_PASSWORD")
