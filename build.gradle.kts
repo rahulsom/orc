@@ -48,7 +48,7 @@ dependencies {
   implementation("info.picocli:picocli:4.7.0")
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
-  testImplementation("org.assertj:assertj-core:3.24.1")
+  testImplementation("org.assertj:assertj-core:3.24.2")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.2")
 
 }
