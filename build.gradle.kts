@@ -2,7 +2,7 @@ import com.github.rahulsom.waena.WaenaExtension
 import nebula.plugin.contacts.Contact
 
 plugins {
-  id("org.jetbrains.kotlin.jvm").version("1.8.0")
+  id("org.jetbrains.kotlin.jvm").version("1.8.10")
   id("com.github.rahulsom.waena.root").version("0.6.1")
   id("com.github.rahulsom.waena.published").version("0.6.1")
   id("application")
