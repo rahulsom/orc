@@ -51,7 +51,7 @@ dependencies {
   implementation("org.openrewrite:rewrite-xml")
   implementation("org.openrewrite:rewrite-yaml")
 
-  implementation("info.picocli:picocli:4.7.1")
+  implementation("info.picocli:picocli:4.7.2")
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
   testImplementation("org.assertj:assertj-core:3.24.2")
