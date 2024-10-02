@@ -3,8 +3,8 @@ import nebula.plugin.contacts.Contact
 
 plugins {
   id("org.jetbrains.kotlin.jvm").version("1.8.20")
-  id("com.github.rahulsom.waena.root").version("0.6.1")
-  id("com.github.rahulsom.waena.published").version("0.6.1")
+  id("com.github.rahulsom.waena.root").version("0.7.2")
+  id("com.github.rahulsom.waena.published").version("0.7.2")
   id("application")
   id("com.google.cloud.tools.jib").version("3.3.1")
 }
