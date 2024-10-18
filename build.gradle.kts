@@ -6,7 +6,7 @@ plugins {
   id("com.github.rahulsom.waena.root").version("0.6.1")
   id("com.github.rahulsom.waena.published").version("0.6.1")
   id("application")
-  id("com.google.cloud.tools.jib").version("3.3.1")
+  id("com.google.cloud.tools.jib").version("3.4.4")
 }
 
 allprojects {
